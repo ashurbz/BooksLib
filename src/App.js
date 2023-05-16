@@ -17,10 +17,13 @@ function App() {
   console.log(book);
 
   return (
-    <div className="card-container">
-      <BookList createBook={book} />
-      <CreateBook create={create} />
-    </div>
+    <>
+      <h1 style={{ textAlign: "center" }}>Book List</h1>
+      <div className="card-container">
+        <BookList createBook={book} />
+        <CreateBook create={create} />
+      </div>
+    </>
   );
 }
 

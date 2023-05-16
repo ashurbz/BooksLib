@@ -14,9 +14,17 @@ const CreateBook = ({ create }) => {
 
   return (
     <div>
-      <div>
-        <input type="text" onChange={handleCreateBook} value={title} />
-        <button onClick={handleClick}>Add Book</button>
+      <div className="create-book">
+        <input
+          className="input-create"
+          type="text"
+          onChange={handleCreateBook}
+          value={title}
+          placeholder="Create Book"
+        />
+        <button className="btn-create" onClick={handleClick}>
+          Add Book
+        </button>
       </div>
     </div>
   );
