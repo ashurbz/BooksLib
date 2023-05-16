@@ -7,6 +7,13 @@ function App() {
 
   const bookId = Math.trunc(Math.random() * 9999);
 
+  const deleteBook = (id) => {
+    const updatedBook = book.filter((book) => {
+      return book.bookId !== id;
+    });
+    setBook(updatedBook);
+  };
+
   const create = (title) => {
     if (title === " ") {
       return null;
@@ -14,13 +21,11 @@ function App() {
     setBook([...book, { bookId, title }]);
   };
 
-  console.log(book);
-
   return (
     <>
       <h1 style={{ textAlign: "center" }}>Book List</h1>
       <div className="card-container">
-        <BookList createBook={book} />
+        <BookList deleteBook={deleteBook} createBook={book} />
         <CreateBook create={create} />
       </div>
     </>
