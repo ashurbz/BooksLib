@@ -1,11 +1,17 @@
 import React, { useState } from "react";
 import "./commonStyle.css";
 
-const BookEdit = ({ book }) => {
+const BookEdit = ({ book, editBook, handleSave }) => {
   const [editText, setEditText] = useState(book.title);
+  console.log(book);
 
   const handleOnChangeEdit = (e) => {
     setEditText(e.target.value);
+  };
+
+  const handleClickSave = () => {
+    editBook(book.bookId, editText);
+    handleSave();
   };
 
   return (
@@ -17,7 +23,9 @@ const BookEdit = ({ book }) => {
         onChange={handleOnChangeEdit}
         value={editText}
       />
-      <button className="edit-btn">Save</button>
+      <button onClick={handleClickSave} className="edit-btn">
+        Save
+      </button>
     </div>
   );
 };
